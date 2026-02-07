@@ -1,5 +1,6 @@
-# Commands terminal Ubuntu
-## For shortening and un-shortening the path in terminal :
+# Utils Ubuntu
+## Terminal
+### For shortening and un-shortening the path in terminal :
 
 Add to .bashrc :
 ```
@@ -19,7 +20,7 @@ longpath() {
 # END of custom commands
 ```
 
-## For sourcing a specific ROS version :
+### For sourcing a specific ROS version :
 Add to .bashrc :
 
 ```
@@ -30,10 +31,18 @@ fi
 
 Add to .bash_aliases : 
 ```
-alias RosJazzy='source /opt/ros/jazzy/setup.bash && pyenv shell system'
+alias Ros$Version$='source /opt/ros/$version$/setup.bash && pyenv shell system'
 ```
 
 ### Commands : 
 `shortpath` to shorten the path \
 `longpath` to make it long again \
 `Ros$Version$` to source the setup.bash for this version and use system python
+
+# Utils Windows
+## SSH
+To add ssh keys for multiple github accounts : view the template `ssh_config`
+To clone using specific ssh key : 
+```
+git clone git@$HOST$:MatheoTaillandier/Utils.git
+```
