@@ -37,6 +37,10 @@ pre-commit hooks are defined in the .pre-commit-config.yaml file. You can add or
 ### Hooks used
 - **ruff** : a linter and formatter for Python code (uses the --fix option to automatically fix issues)
 - **detect-secrets** : a tool for detecting secrets in code to prevent them from being committed to version control
+
+### Github actions
+For github actions that implement the same checks as the pre-commits, view the actions for this repo
+
 # Utils Ubuntu
 ## Terminal
 ### For shortening and un-shortening the path in terminal :
