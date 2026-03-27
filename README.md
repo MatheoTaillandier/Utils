@@ -84,7 +84,7 @@ alias Ros$Version$='source /opt/ros/$version$/setup.bash'
 ```
 
 ### For ROS over wifi : 
-- set $ROS_LOCALHOST_ONlY = 0
+- set $ROS_LOCALHOST_ONLY = 0
 - Setup cyclonedds and its xml file
 Add to .bashrc :
 ```
