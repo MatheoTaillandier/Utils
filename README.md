@@ -74,7 +74,7 @@ fi
 
 Add to .bash_aliases : 
 ```
-alias Ros$Version$='source /opt/ros/$version$/setup.bash && pyenv shell system'
+alias Ros$Version$='source /opt/ros/$version$/setup.bash'
 ```
 
 ### Commands : 
