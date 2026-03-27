@@ -63,6 +63,12 @@ longpath() {
 # END of custom commands
 ```
 
+### Commands : 
+`shortpath` to shorten the path \
+`longpath` to make it long again \
+`Ros$Version$` to source the setup.bash for this version and use system python
+
+## ROS
 ### For sourcing a specific ROS version :
 Add to .bashrc :
 
@@ -77,10 +83,16 @@ Add to .bash_aliases :
 alias Ros$Version$='source /opt/ros/$version$/setup.bash'
 ```
 
-### Commands : 
-`shortpath` to shorten the path \
-`longpath` to make it long again \
-`Ros$Version$` to source the setup.bash for this version and use system python
+### For ROS over wifi : 
+- set $ROS_LOCALHOST_ONlY = 0
+- Setup cyclonedds and its xml file
+Add to .bashrc :
+```
+export ROS_DOMAIN_ID = $$ # $$ (0-101) needs to be the same on all the machines
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI=file:///home/YOUR_USER/cyclonedds.xml
+```
+
 
 # Utils Windows
 ## SSH
