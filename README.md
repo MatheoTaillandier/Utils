@@ -71,7 +71,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~"
 alias bd="cd -" # Quick jump back to the previous directory
 
 # Modern/detailed ls alternatives
