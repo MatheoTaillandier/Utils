@@ -101,8 +101,8 @@ alias ll='ls -alF'           # Long format with hidden files & indicators
 alias la='ls -A'             # Show almost all (includes hidden, excludes . and ..)
 alias l='ls -CF'
 alias lx='ls -lXB'           # Sort by extension
-alias lk='ls -lS'           # Sort by size, largest last
-alias lt='ls -lt'           # Sort by date, newest last
+alias lk='ls -lS'           # Sort by size, largest first
+alias lt='ls -lt'           # Sort by date, newest first
 
 # ==============================================================================
 # SAFETY & DEFAULTS
