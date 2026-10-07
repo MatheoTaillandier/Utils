@@ -49,6 +49,9 @@ Add to .bash_aliases :
 ```
 # START of custom commands
 
+# ==============================================================================
+# TERMINAL
+# ==============================================================================
 # Save current prompt and shorten it
 shortpath() {
     export ORIGINAL_PS1="$PS1"   # store current prompt
