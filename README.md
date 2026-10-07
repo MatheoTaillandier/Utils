@@ -45,9 +45,12 @@ For github actions that implement the same checks as the pre-commits, view the a
 ## Terminal
 ### For shortening and un-shortening the path in terminal :
 
-Add to .bashrc :
+Add to .bash_aliases :
 ```
 # START of custom commands
+
+# Source a specific ROS2 version
+alias Ros$Version$='source /opt/ros/$version$/setup.bash'
 
 # Save current prompt and shorten it
 shortpath() {
@@ -60,29 +63,37 @@ longpath() {
     export PS1="$ORIGINAL_PS1"   # restore prompt
 }
 
+# Checkout PR
+gitpr() {
+    if [ -z "$1" ]; then
+        echo "Cleaning up local PR branches..."
+        local current_branch
+        current_branch="$(git branch --show-current)"
+    
+        # Switch to main if currently on a PR branch
+        if [[ "$current_branch" =~ ^pr/[0-9]+$ ]]; then
+            echo "Currently on PR branch '$current_branch'. Switching to main..."
+            git checkout main || return 1
+        fi
+    
+        # Delete all local PR branches
+        git branch | grep -E '^[* ]*pr/[0-9]+$' | xargs -r git branch -D
+    else
+        local remote="${2:-origin}"
+        git fetch "$remote" "pull/$1/head:pr/$1" && git checkout "pr/$1"
+    fi
+}
+
 # END of custom commands
 ```
 
 ### Commands : 
 `shortpath` to shorten the path \
 `longpath` to make it long again \
+`gitpr`checkout PR from a repo \
 `Ros$Version$` to source the setup.bash for this version and use system python
 
 ## ROS
-### For sourcing a specific ROS version :
-Add to .bashrc :
-
-```
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-```
-
-Add to .bash_aliases : 
-```
-alias Ros$Version$='source /opt/ros/$version$/setup.bash'
-```
-
 ### For ROS over wifi : 
 - set $ROS_LOCALHOST_ONLY = 0
 - Setup cyclonedds and its xml file
