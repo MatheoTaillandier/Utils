@@ -154,6 +154,7 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gl='git log --oneline --graph --decorate'
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 alias gpl='git pull'
 alias gd='git diff'
 gdbase() { git diff "$(git merge-base HEAD main)"; }
