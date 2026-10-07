@@ -64,7 +64,7 @@ longpath() {
 }
 
 # Checkout PR
-gitpr() {
+gpr() {
     if [ -z "$1" ]; then
         echo "Cleaning up local PR branches..."
         local current_branch
@@ -83,6 +83,97 @@ gitpr() {
         git fetch "$remote" "pull/$1/head:pr/$1" && git checkout "pr/$1"
     fi
 }
+
+# ==============================================================================
+# NAVIGATION & DIRECTORY LISTING
+# ==============================================================================
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias bd="cd -" # Quick jump back to the previous directory
+
+# Modern/detailed ls alternatives
+alias ls='ls --color=auto'
+alias ll='ls -alF'           # Long format with hidden files & indicators
+alias la='ls -A'             # Show almost all (includes hidden, excludes . and ..)
+alias l='ls -CF'
+alias lx='ls -lXB'           # Sort by extension
+alias lk='ls -lSr'           # Sort by size, largest last
+alias lt='ls -ltr'           # Sort by date, newest last
+
+# ==============================================================================
+# SAFETY & DEFAULTS
+# ==============================================================================
+# Confirmation before destructive actions
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Prevent accidental overwrites when making directories
+alias mkdir='mkdir -pv'      # Verbose + create parent directories as needed
+
+# ==============================================================================
+# SYSTEM & RESOURCE MONITORING
+# ==============================================================================
+# Disk and Memory usage (human-readable format)
+alias df='df -h'
+alias du='du -h'
+alias free='free -m'
+
+# Quick check on top processes
+alias topcpu='ps auxf | sort -nr -k 3 | head -10'
+alias topmem='ps auxf | sort -nr -k 4 | head -10'
+
+# Easily check open ports
+alias ports='netstat -tulanp' # or use `ss -tulpn` on modern systems
+
+# ==============================================================================
+# GIT CONVENIENCE
+# ==============================================================================
+alias g='git'
+alias gs='git status -s'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit -m'
+alias gco='git checkout'
+alias gb='git branch'
+alias gl='git log --oneline --graph --decorate'
+alias gp='git push'
+alias gpl='git pull'
+
+# ==============================================================================
+# NETWORK & IP UTILITIES
+# ==============================================================================
+# Get local and public IP addresses
+alias myip="curl -s https://ipinfo.io/ip"
+alias localip="hostname -I | awk '{print \$1}'"
+
+# Ping shortcut with reasonable limits
+alias fastping='ping -c 5 1.1.1.1'
+
+# ==============================================================================
+# MISCELLANEOUS & UTILITIES
+# ==============================================================================
+# Reload bash configuration quickly
+alias reload='source ~/.bashrc'
+
+# Quick text editor shortcut
+alias v='vim'
+alias nano='nano -c'          # Always show line numbers in nano
+
+# Weather report right in the terminal
+alias weather='curl -s wttr.in'
+
+# Search history easily
+alias h='history'
+alias hg='history | grep'
+
+# Clear screen shortcut
+alias c='clear'
+alias cls='clear'
 
 # END of custom commands
 ```
