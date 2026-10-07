@@ -128,7 +128,7 @@ alias topcpu='ps auxf | sort -nr -k 3 | head -10'
 alias topmem='ps auxf | sort -nr -k 4 | head -10'
 
 # Easily check open ports
-alias ports='netstat -tulanp' # or use `ss -tulpn` on modern systems
+alias ports='ss -tulpn'
 
 # ==============================================================================
 # GIT CONVENIENCE
@@ -164,7 +164,7 @@ alias aliases='nano ~/.bash_aliases'
 alias reload='source ~/.bashrc'
 
 # Quick text editor shortcut
-alias nano='nano -c'          # Always show line numbers in nano
+alias nano='nano -l'          # Always show line numbers in nano
 
 # Search history easily
 alias h='history'
