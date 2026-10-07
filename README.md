@@ -101,8 +101,8 @@ alias ll='ls -alF'           # Long format with hidden files & indicators
 alias la='ls -A'             # Show almost all (includes hidden, excludes . and ..)
 alias l='ls -CF'
 alias lx='ls -lXB'           # Sort by extension
-alias lk='ls -lSr'           # Sort by size, largest last
-alias lt='ls -ltr'           # Sort by date, newest last
+alias lk='ls -lS'           # Sort by size, largest last
+alias lt='ls -lt'           # Sort by date, newest last
 
 # ==============================================================================
 # SAFETY & DEFAULTS
@@ -157,15 +157,14 @@ alias fastping='ping -c 5 1.1.1.1'
 # ==============================================================================
 # MISCELLANEOUS & UTILITIES
 # ==============================================================================
+# Edit this file quickly
+alias aliases='nano ~/.bash_aliases'
+
 # Reload bash configuration quickly
 alias reload='source ~/.bashrc'
 
 # Quick text editor shortcut
-alias v='vim'
 alias nano='nano -c'          # Always show line numbers in nano
-
-# Weather report right in the terminal
-alias weather='curl -s wttr.in'
 
 # Search history easily
 alias h='history'
