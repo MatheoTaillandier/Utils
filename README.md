@@ -49,9 +49,6 @@ Add to .bash_aliases :
 ```
 # START of custom commands
 
-# Source a specific ROS2 version
-alias Ros$Version$='source /opt/ros/$version$/setup.bash'
-
 # Save current prompt and shorten it
 shortpath() {
     export ORIGINAL_PS1="$PS1"   # store current prompt
@@ -111,9 +108,13 @@ alias lt='ls -lt'           # Sort by date, newest first
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoredups:erasedups  # no duplicate history entries
 
 # Prevent accidental overwrites when making directories
 alias mkdir='mkdir -pv'      # Verbose + create parent directories as needed
+mkcd() { mkdir -p "$1" && cd "$1"; }     # make dir and cd into it in one step
 
 # ==============================================================================
 # SYSTEM & RESOURCE MONITORING
@@ -122,6 +123,7 @@ alias mkdir='mkdir -pv'      # Verbose + create parent directories as needed
 alias df='df -h'
 alias du='du -h'
 alias free='free -m'
+alias pk='pkill -f'
 
 # Quick check on top processes
 alias topcpu='ps auxf | sort -nr -k 3 | head -10'
@@ -129,6 +131,16 @@ alias topmem='ps auxf | sort -nr -k 4 | head -10'
 
 # Easily check open ports
 alias ports='ss -tulpn'
+portuse() { lsof -i ":$1"; }
+
+# ==============================================================================
+# FIND & SEARCH
+# ==============================================================================
+alias grep='grep --color=auto'
+ff() { find . -iname "*$1*"; }                                  # find file by (partial) name
+fcd() { cd "$(find . -type d -iname "*$1*" | head -1)"; }       # find dir by name and cd into it
+fe() { nano "$(find . -type f -iname "*$1*" | head -1)"; }      # find file by name and open it
+alias biggest='du -ah . | sort -rh | head -50'                  # biggest files/dirs in current folder
 
 # ==============================================================================
 # GIT CONVENIENCE
@@ -143,6 +155,15 @@ alias gb='git branch'
 alias gl='git log --oneline --graph --decorate'
 alias gp='git push'
 alias gpl='git pull'
+alias gd='git diff'
+gdbase() { git diff "$(git merge-base HEAD main)"; }
+alias gdm='git diff main'
+alias gss='git stash'
+alias gsp='git stash pop'
+alias gcm='git checkout main'
+alias grb='git rebase'
+alias gcp='git cherry-pick'
+alias gundo='git reset --soft HEAD~1'
 
 # ==============================================================================
 # NETWORK & IP UTILITIES
@@ -155,8 +176,40 @@ alias localip="hostname -I | awk '{print \$1}'"
 alias fastping='ping -c 5 1.1.1.1'
 
 # ==============================================================================
+# ROS2
+# ==============================================================================
+# Source a specific ROS2 version
+alias RosLyrical='source /opt/ros/lyrical/setup.bash'
+alias cbuild='colcon build --symlink-install'
+alias csource='source install/setup.bash'
+
+# ==============================================================================
+# DOCKER
+# ==============================================================================
+alias d='docker'
+alias dc='docker compose'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dimg='docker images'
+alias dstop='docker ps -q | xargs -r docker stop'
+alias drm='docker ps -aq | xargs -r docker rm'
+alias drmi='docker images -q | xargs -r docker rmi'
+alias dlog='docker logs -f'
+dsh() { docker exec -it "$1" "${2:-bash}"; }                 # shell into container: dsh <name> [shell]
+alias dprune='docker system prune -af'                       # reclaim disk space (careful: destructive)
+
+# ==============================================================================
+# PYTHON / VENV
+# ==============================================================================
+alias venv='uv venv && source .venv/bin/activate'
+alias activate='source .venv/bin/activate'
+alias rmvenv='deactivate 2>/dev/null; rm -rf .venv'
+
+# ==============================================================================
 # MISCELLANEOUS & UTILITIES
 # ==============================================================================
+alias please='sudo $(fc -ln -1)'           # rerun last command with sudo
+
 # Edit this file quickly
 alias aliases='nano ~/.bash_aliases'
 
@@ -173,6 +226,19 @@ alias hg='history | grep'
 # Clear screen shortcut
 alias c='clear'
 alias cls='clear'
+
+alias path='echo -e ${PATH//:/\\n}'      # print $PATH, one entry per line
+alias now='date +"%Y-%m-%d %H:%M:%S"'
+extract() {                              # universal archive extractor
+    case "$1" in
+        *.tar.gz|*.tgz) tar xzf "$1" ;;
+        *.tar.bz2) tar xjf "$1" ;;
+        *.tar) tar xf "$1" ;;
+        *.zip) unzip "$1" ;;
+        *.gz) gunzip "$1" ;;
+        *) echo "Unsupported format: $1" ;;
+    esac
+}
 
 # END of custom commands
 ```
