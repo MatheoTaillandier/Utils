@@ -60,27 +60,6 @@ longpath() {
     export PS1="$ORIGINAL_PS1"   # restore prompt
 }
 
-# Checkout PR
-gpr() {
-    if [ -z "$1" ]; then
-        echo "Cleaning up local PR branches..."
-        local current_branch
-        current_branch="$(git branch --show-current)"
-    
-        # Switch to main if currently on a PR branch
-        if [[ "$current_branch" =~ ^pr/[0-9]+$ ]]; then
-            echo "Currently on PR branch '$current_branch'. Switching to main..."
-            git checkout main || return 1
-        fi
-    
-        # Delete all local PR branches
-        git branch | grep -E '^[* ]*pr/[0-9]+$' | xargs -r git branch -D
-    else
-        local remote="${2:-origin}"
-        git fetch "$remote" "pull/$1/head:pr/$1" && git checkout "pr/$1"
-    fi
-}
-
 # ==============================================================================
 # NAVIGATION & DIRECTORY LISTING
 # ==============================================================================
@@ -165,6 +144,26 @@ alias gcm='git checkout main'
 alias grb='git rebase'
 alias gcp='git cherry-pick'
 alias gundo='git reset --soft HEAD~1'
+# Checkout PR
+gpr() {
+    if [ -z "$1" ]; then
+        echo "Cleaning up local PR branches..."
+        local current_branch
+        current_branch="$(git branch --show-current)"
+    
+        # Switch to main if currently on a PR branch
+        if [[ "$current_branch" =~ ^pr/[0-9]+$ ]]; then
+            echo "Currently on PR branch '$current_branch'. Switching to main..."
+            git checkout main || return 1
+        fi
+    
+        # Delete all local PR branches
+        git branch | grep -E '^[* ]*pr/[0-9]+$' | xargs -r git branch -D
+    else
+        local remote="${2:-origin}"
+        git fetch "$remote" "pull/$1/head:pr/$1" && git checkout "pr/$1"
+    fi
+}
 
 # ==============================================================================
 # NETWORK & IP UTILITIES
