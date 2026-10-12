@@ -199,6 +199,6 @@ extract() {                              # universal archive extractor
 # ==============================================================================
 alias aliases='nano ~/.bash_aliases' # Edit this file quickly
 alias cdutils='cd ~/Utils'
-alias updateutils='cdutils && gfa && gpl'
+alias updateutils='cdutils && gfa && gpl && bd'
 alias rmutils='rm -rf ~/Utils'
 # END of custom commands
