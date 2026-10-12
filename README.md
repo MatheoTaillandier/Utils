@@ -44,10 +44,12 @@ For github actions that implement the same checks as the pre-commits, view the a
 # Utils Ubuntu
 
 For useful aliases, see the the `.bash_aliases` file.
+
+To use the .bash_aliases file of this repo, you can either download the .bash_aliases file of the repo and put it in ~/Utils or clone this repo into your home folder.
 To source this file inside your bash, add the following to your bashrc : 
 ```
-if [ -f <PATH_TO_UTILS_REPO>/.bash_aliases ]; then
-    . <PATH_TO_UTILS_REPO>/.bash_aliases
+if [ -f ~/Utils/.bash_aliases ]; then
+    . ~/Utils/.bash_aliases
 fi
 
 ```
