@@ -89,6 +89,8 @@ alias gp='git push'
 alias gpf='git push --force-with-lease'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
+alias gf='git fetch'
+alias gfa='git fetch --all'
 alias gd='git diff'
 gdbase() { git diff "$(git merge-base HEAD main)"; }
 alias gdm='git diff main'
@@ -168,18 +170,11 @@ please() {
 }
 alias cx='chmod +x'
 
-# Edit this file quickly
-alias aliases='nano ~/.bash_aliases'
-
-# Reload bash configuration quickly
+alias bashrc='nano ~/.bashrc'
 alias reload='source ~/.bashrc'
 
-# Quick text editor shortcut
-alias nano='nano -l'          # Always show line numbers in nano
-
-# Search history easily
 alias h='history'
-alias hg='history | grep'
+alias hg='history | grep' # Search history easily
 
 # Clear screen shortcut
 alias c='clear'
@@ -198,4 +193,12 @@ extract() {                              # universal archive extractor
     esac
 }
 
+
+# ==============================================================================
+# RELATED TO THIS REPO/THE ALIASES FI
+# ==============================================================================
+alias aliases='nano ~/.bash_aliases' # Edit this file quickly
+alias cdutils='cd ~/Utils'
+alias updateutils='cdutils && gfa && gpl'
+alias rmutils='rm -rf ~/Utils'
 # END of custom commands
