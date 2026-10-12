@@ -211,7 +211,10 @@ alias rmvenv='deactivate 2>/dev/null; rm -rf .venv'
 # ==============================================================================
 # MISCELLANEOUS & UTILITIES
 # ==============================================================================
-alias please='sudo $(fc -ln -1)'           # rerun last command with sudo
+# rerun last command with sudo
+please() {
+    sudo $(history -p !!)
+}
 alias cx='chmod +x'
 
 # Edit this file quickly
