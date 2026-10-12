@@ -57,6 +57,11 @@ alias mkdir='mkdir -pv'      # Verbose + create parent directories as needed
 mkcd() { mkdir -p "$1" && cd "$1"; }     # make dir and cd into it in one step
 
 # ==============================================================================
+# SYSTEM
+# ==============================================================================
+alias updatenvidia='sudo apt update && sudo ubuntu-drivers install nvidia' # Update or install recommended NVIDIA drivers
+
+# ==============================================================================
 # SYSTEM & RESOURCE MONITORING
 # ==============================================================================
 # Disk and Memory usage (human-readable format)
