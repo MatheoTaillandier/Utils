@@ -60,6 +60,7 @@ mkcd() { mkdir -p "$1" && cd "$1"; }     # make dir and cd into it in one step
 # SYSTEM
 # ==============================================================================
 alias updatenvidia='sudo apt update && sudo ubuntu-drivers install nvidia' # Update or install recommended NVIDIA drivers
+alias updategrub='sudo update-grub' # update grub
 
 # ==============================================================================
 # SYSTEM & RESOURCE MONITORING
