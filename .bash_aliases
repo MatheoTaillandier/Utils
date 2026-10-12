@@ -197,7 +197,7 @@ extract() {                              # universal archive extractor
 # ==============================================================================
 # RELATED TO THIS REPO/THE ALIASES FI
 # ==============================================================================
-alias aliases='nano ~/.bash_aliases' # Edit this file quickly
+alias aliases='nano ~/Utils/.bash_aliases' # Edit this file quickly
 alias cdutils='cd ~/Utils'
 alias updateutils='cdutils && gfa && gpl && bd'
 alias rmutils='rm -rf ~/Utils'
