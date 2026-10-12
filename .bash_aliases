@@ -1,6 +1,14 @@
 # START of custom commands
 
 # ==============================================================================
+# RELATED TO THIS REPO/THE ALIASES FI
+# ==============================================================================
+alias aliases='nano ~/Utils/.bash_aliases' # Edit this file quickly
+alias cdutils='cd ~/Utils'
+alias updateutils='cdutils && gfa && gpl && bd'
+alias rmutils='rm -rf ~/Utils'
+
+# ==============================================================================
 # TERMINAL
 # ==============================================================================
 # Save current prompt and shorten it
@@ -192,13 +200,4 @@ extract() {                              # universal archive extractor
         *) echo "Unsupported format: $1" ;;
     esac
 }
-
-
-# ==============================================================================
-# RELATED TO THIS REPO/THE ALIASES FI
-# ==============================================================================
-alias aliases='nano ~/Utils/.bash_aliases' # Edit this file quickly
-alias cdutils='cd ~/Utils'
-alias updateutils='cdutils && gfa && gpl && bd'
-alias rmutils='rm -rf ~/Utils'
 # END of custom commands
