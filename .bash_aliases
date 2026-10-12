@@ -166,7 +166,7 @@ alias rmvenv='deactivate 2>/dev/null; rm -rf .venv'
 # ==============================================================================
 # rerun last command with sudo
 please() {
-    sudo $(history -p !!)
+    sudo $(fc -ln -1)
 }
 alias cx='chmod +x'
 
