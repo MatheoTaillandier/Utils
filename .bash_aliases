@@ -63,7 +63,7 @@ alias updatenvidia='sudo apt update && sudo ubuntu-drivers install nvidia' # Upd
 alias updategrub='sudo update-grub' # update grub
 
 # Cleanup
-alias emptytrash='trash-empty
+alias emptytrash='trash-empty'
 
 # ==============================================================================
 # SYSTEM & RESOURCE MONITORING
