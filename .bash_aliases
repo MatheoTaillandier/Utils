@@ -87,9 +87,9 @@ portuse() { lsof -i ":$1"; }
 # FIND & SEARCH
 # ==============================================================================
 alias grep='grep --color=auto'
-ff() { find . -iname "*$1*"; }                                  # find file by (partial) name
-fcd() { cd "$(find . -type d -iname "*$1*" | head -1)"; }       # find dir by name and cd into it
-fe() { nano "$(find . -type f -iname "*$1*" | head -1)"; }      # find file by name and open it
+findfile() { find . -iname "*$1*"; }                                  # find file by (partial) name
+findcd() { cd "$(find . -type d -iname "*$1*" | head -1)"; }       # find dir by name and cd into it
+findopen() { nano "$(find . -type f -iname "*$1*" | head -1)"; }      # find file by name and open it
 alias biggest='du -ah . | sort -rh | head -50'                  # biggest files/dirs in current folder
 
 # ==============================================================================
