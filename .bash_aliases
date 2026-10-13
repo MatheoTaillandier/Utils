@@ -65,6 +65,9 @@ alias updategrub='sudo update-grub' # update grub
 # ==============================================================================
 # SYSTEM & RESOURCE MONITORING
 # ==============================================================================
+# Resources info
+alias memuse="free -m | awk 'NR==2 {printf \"Memory Usage: %.1fGB / %.1fGB (%.1f%%) | Available: %.1fGB\n\", \$3/1024, \$2/1024, \$3*100/\$2, \$7/1024}'"
+
 # Quick check on top processes
 alias topcpu='ps -eo %cpu,comm --sort=-%cpu | grep -v " ps$" | head -11'
 alias topmem='ps -eo %mem,comm --sort=-%mem | grep -v " ps$" | head -11'
