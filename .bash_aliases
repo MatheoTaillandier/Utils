@@ -71,9 +71,9 @@ alias memuse="free -m | awk 'NR==2 {printf \"Memory Usage: %.1fGB / %.1fGB (%.1f
 # Quick check on top processes
 alias topcpu='ps -eo %cpu,comm --sort=-%cpu | grep -v " ps$" | head -11'
 alias topmem='ps -eo %mem,comm --sort=-%mem | grep -v " ps$" | head -11'
-alias cpuinfo='lscpu'
 
 # Hardware info
+alias cpuinfo='lscpu'
 alias meminfo='echo -n "Total: " && free -h | awk "/Mem:/{print \$2}" && sudo dmidecode --type memory | awk "/Size: [0-9]/{s=\$2\" \"\$3} /Type: DDR/{t=\$2} /Speed: [0-9]/{sp=\$2\" \"\$3} /Manufacturer:/{m=\$2; print \" - \" s \" \" t \" @ \" sp \" (\" m \")\"}"'
 alias diskinfo='echo -n "Total Usage: " && df -h --total | awk "/total/{print \$3 \" / \" \$2 \" (\" \$5 \" used)\"}" && echo "" && lsblk -d -e 7,11 -o NAME,MODEL,VENDOR,SIZE,ROTA,TYPE,MOUNTPOINTS | awk "BEGIN {format=\"%-8s %-22s %-12s %-8s %-6s %-6s %-s\n\"} NR==1 {printf format, \$1, \$2, \$3, \$4, \"TYPE\", \"KIND\", \$7; next} {printf format, \$1, \$2, \$3, \$4, (\$5==\"0\"?\"SSD\":\"HDD\"), \$6, \$7}"'
 alias gpuinfo='if command -v nvidia-smi &>/dev/null && nvidia-smi &>/dev/null; then nvidia-smi --query-gpu=gpu_name,driver_version,memory.used,memory.total,temperature.gpu,utilization.gpu --format=csv,noheader | awk -F", " "{print \"GPU: \" \$1 \"\nDriver: \" \$2 \"\nVRAM: \" \$3 \" / \" \$4 \"\nTemp: \" \$5 \"°C (Load: \" \$6 \")\"}"; else echo "=== GPU HARDWARE & DRIVER ===" && lspci -nnk | grep -A 3 -i "VGA\|3D" && echo -e "\n=== DISPLAY & VRAM ===" && if command -v glxinfo &>/dev/null; then glxinfo | grep -E "OpenGL renderer string|OpenGL vendor string|OpenGL version string|Video memory"; else echo "Install mesa-utils (sudo apt install mesa-utils) for VRAM & OpenGL details"; fi; fi'
