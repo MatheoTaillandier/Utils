@@ -65,12 +65,6 @@ alias updategrub='sudo update-grub' # update grub
 # ==============================================================================
 # SYSTEM & RESOURCE MONITORING
 # ==============================================================================
-# Disk and Memory usage (human-readable format)
-alias df='df -h'
-alias du='du -h'
-alias free='free -m'
-alias pk='pkill -f'
-
 # Quick check on top processes
 alias topcpu='ps -eo %cpu,comm --sort=-%cpu | grep -v " ps$" | head -11'
 alias topmem='ps -eo %mem,comm --sort=-%mem | grep -v " ps$" | head -11'
