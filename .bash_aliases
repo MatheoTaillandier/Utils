@@ -167,6 +167,7 @@ alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dimg='docker images'
 alias dstorage='docker system df'
+alias dclearcache='docker builder prune'                     # clear docker build cache
 alias dstop='docker ps -q | xargs -r docker stop'
 alias drm='docker ps -aq | xargs -r docker rm'
 alias drmi='docker images -q | xargs -r docker rmi'
