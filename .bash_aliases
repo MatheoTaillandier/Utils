@@ -4,6 +4,7 @@
 # RELATED TO THIS REPO/THE ALIASES FI
 # ==============================================================================
 alias aliases='nano ~/Utils/.bash_aliases' # Edit this file quickly
+alias cataliases='cat ~/Utils/.bash_aliases' # Print this file
 alias cdutils='cd ~/Utils'
 alias updateutils='cdutils && gfa && gpl && bd'
 alias rmutils='rm -rf ~/Utils'
