@@ -100,31 +100,15 @@ alias biggest='du -ah . | sort -rh | head -50'                  # biggest files/
 # ==============================================================================
 # GIT CONVENIENCE
 # ==============================================================================
-alias g='git'
-alias gs='git status -s'
-alias ga='git add'
-alias gaa='git add --all'
-alias gc='git commit -m'
-alias gco='git checkout'
-alias gb='git branch'
-alias gl='git log --oneline --graph --decorate'
-alias gp='git push'
-alias gpf='git push --force-with-lease'
-alias gpl='git pull'
-alias gplr='git pull --rebase'
-alias gf='git fetch'
-alias gfa='git fetch --all'
-alias gd='git diff'
-gdbase() { git diff "$(git merge-base HEAD main)"; }
-alias gdm='git diff main'
-alias gss='git stash'
-alias gsp='git stash pop'
-alias gcm='git checkout main'
-alias grb='git rebase'
-alias gcp='git cherry-pick'
-alias gundo='git reset --soft HEAD~1'
+alias gitaddall='git add --all'
+alias gitlog='git log --oneline --graph --decorate'
+alias gitpushforce='git push --force-with-lease'
+alias gitpullrebase='git pull --rebase'
+gitdiffbase() { git diff "$(git merge-base HEAD main)"; }
+alias gitdiffmain='git diff main'
+alias gitundo='git reset --soft HEAD~1'
 # Checkout PR
-gpr() {
+gitpr() {
     if [ -z "$1" ]; then
         echo "Cleaning up local PR branches..."
         local current_branch
