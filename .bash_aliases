@@ -201,10 +201,6 @@ alias reload='source ~/.bashrc'
 alias h='history'
 alias hg='history | grep' # Search history easily
 
-# Clear screen shortcut
-alias c='clear'
-alias cls='clear'
-
 alias path='echo -e ${PATH//:/\\n}'      # print $PATH, one entry per line
 alias now='date +"%Y-%m-%d %H:%M:%S"'
 extract() {                              # universal archive extractor
