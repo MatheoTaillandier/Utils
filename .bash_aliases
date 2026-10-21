@@ -108,7 +108,7 @@ gitdiffbase() { git diff "$(git merge-base HEAD main)"; }
 alias gitdiffmain='git diff main'
 alias gitundo='git reset --soft HEAD~1'
 # Checkout PR
-gitpr() {
+gitcheckoutpr() {
     if [ -z "$1" ]; then
         echo "Cleaning up local PR branches..."
         local current_branch
@@ -149,8 +149,6 @@ alias csource='source install/setup.bash'
 # ==============================================================================
 # DOCKER
 # ==============================================================================
-alias d='docker'
-alias dc='docker compose'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dimg='docker images'
@@ -159,9 +157,9 @@ alias dclearcache='docker builder prune'                     # clear docker buil
 alias dstop='docker ps -q | xargs -r docker stop'
 alias drm='docker ps -aq | xargs -r docker rm'
 alias drmi='docker images -q | xargs -r docker rmi'
-alias dlog='docker logs -f'
-dsh() { docker exec -it "$1" "${2:-bash}"; }                 # shell into container: dsh <name> [shell]
-alias dprune='docker system prune -af'                       # reclaim disk space (careful: destructive)
+alias dockerlog='docker logs -f'
+dockershell() { docker exec -it "$1" "${2:-bash}"; }                 # shell into container: dsh <name> [shell]
+alias dockerprune='docker system prune -af'                  # reclaim disk space (careful: destructive)
 
 # ==============================================================================
 # PYTHON / VENV
@@ -177,7 +175,7 @@ alias rmvenv='deactivate 2>/dev/null; rm -rf .venv'
 please() {
     sudo $(fc -ln -1)
 }
-alias cx='chmod +x'
+alias chmodx='chmod +x'
 
 alias bashrc='nano ~/.bashrc'
 alias reload='source ~/.bashrc'
