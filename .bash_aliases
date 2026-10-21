@@ -185,6 +185,10 @@ alias hg='history | grep' # Search history easily
 
 alias path='echo -e ${PATH//:/\\n}'      # print $PATH, one entry per line
 alias now='date +"%Y-%m-%d %H:%M:%S"'
+timeat() {
+    local ts="$1"
+    date -d "@$ts" +"%Y-%m-%d %H:%M:%S.%3N %Z"
+}
 extract() {                              # universal archive extractor
     case "$1" in
         *.tar.gz|*.tgz) tar xzf "$1" ;;
