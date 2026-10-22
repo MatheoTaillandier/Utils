@@ -6,7 +6,7 @@
 alias aliases='nano ~/Utils/.bash_aliases' # Edit this file quickly
 alias cataliases='cat ~/Utils/.bash_aliases' # Print this file
 alias cdutils='cd ~/Utils'
-alias updateutils='cdutils && gfa && gpl && bd'
+alias updateutils='cdutils && git fetch && git pull && bd'
 alias rmutils='rm -rf ~/Utils'
 
 # ==============================================================================
