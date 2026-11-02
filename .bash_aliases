@@ -104,9 +104,20 @@ alias gitaddall='git add --all'
 alias gitlog='git log --oneline --graph --decorate'
 alias gitpushforce='git push --force-with-lease'
 alias gitpullrebase='git pull --rebase'
+
+# edit the last N commits
+gitrebasehead() {
+    if [ -z "$1" ]; then
+        echo "Usage: gitrebasehead <number_of_commits>"
+        return 1
+    fi
+    git rebase -i "HEAD~$1"
+}
+
 gitdiffbase() { git diff "$(git merge-base HEAD main)"; }
 alias gitdiffmain='git diff main'
 alias gitundo='git reset --soft HEAD~1'
+
 # Checkout PR
 gitcheckoutpr() {
     if [ -z "$1" ]; then
