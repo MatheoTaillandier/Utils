@@ -100,6 +100,7 @@ alias biggest='du -ah . | sort -rh | head -50'                  # biggest files/
 # ==============================================================================
 # GIT CONVENIENCE
 # ==============================================================================
+alias gitbranchshowcurrent='git branch --show-current'
 alias gitaddall='git add --all'
 alias gitlog='git log --oneline --graph --decorate'
 alias gitpushforce='git push --force-with-lease'
