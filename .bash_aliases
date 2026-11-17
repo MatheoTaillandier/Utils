@@ -161,14 +161,14 @@ alias csource='source install/setup.bash'
 # ==============================================================================
 # DOCKER
 # ==============================================================================
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias dimg='docker images'
-alias dstorage='docker system df'
-alias dclearcache='docker builder prune'                     # clear docker build cache
-alias dstop='docker ps -q | xargs -r docker stop'
-alias drm='docker ps -aq | xargs -r docker rm'
-alias drmi='docker images -q | xargs -r docker rmi'
+alias dockerps='docker ps'
+alias dockerpsa='docker ps -a'
+alias dockerimages='docker images'
+alias dockerstorage='docker system df'
+alias dockerclearcache='docker builder prune'                     # clear docker build cache
+alias dockerstop='docker ps -q | xargs -r docker stop'
+alias dockerrmall='docker ps -aq | xargs -r docker rm'
+alias dockerrmiall='docker images -q | xargs -r docker rmi'
 alias dockerlog='docker logs -f'
 dockershell() { docker exec -it "$1" "${2:-bash}"; }                 # shell into container: dsh <name> [shell]
 alias dockerprune='docker system prune -af'                  # reclaim disk space (careful: destructive)
